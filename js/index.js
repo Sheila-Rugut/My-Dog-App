@@ -13,6 +13,7 @@ function fetchData(){
     console.log ("Problem accessing the breedlist")
     }
      }
+   //init()  
 }
 fetchData()
 function createBreedList(breedList){
