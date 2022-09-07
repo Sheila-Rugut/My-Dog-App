@@ -31,6 +31,8 @@ const response=await fetch(`https://dog.ceo/api/breed/${breed}/images`)
 const data=await response.json()
 displaySlides(data.message)
 }
+
+
 }
 function displaySlides(images){
 let currentPosition=0
