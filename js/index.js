@@ -12,21 +12,22 @@ function fetchData(){
         catch (error){
     console.log ("Problem accessing the breedlist")
     }
-     }
-   //init()  
+     } 
 }
 fetchData()
-function createBreedList(breedList){
-document.getElementById("breed").innerHTML=`
-<select onchange="displayByBreed(this.value)">
-        <option>Choose a dog breed</option>
-        ${Object.keys(breedList).map(function(breed){
-         return `<option>${breed}</option>`
-        }).join('')}
 
-      </select>
-`
-}
+ function createBreedList(breedList){
+    let button =document.getElementById("breed")
+        button.addEventListener('click', button.innerHTML=`
+        <select onchange="displayByBreed(this.value)">
+                <option>Choose a dog breed</option>
+                ${Object.keys(breedList).map(function(breed){
+                 return `<option>${breed}</option>`
+                }).join('')}
+        
+              </select>
+        `)
+        }
 
 async function displayByBreed(breed){
 if (breed !=="Choose a dog breed"){
