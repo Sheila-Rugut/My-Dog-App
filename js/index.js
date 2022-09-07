@@ -1,18 +1,20 @@
 let timer
 let removeFirstImageDelay
-//document.addEventListener("DOMContentLoaded", (event) => {function init()});
-async function init(){
-    try {
-   //await states js does not run any other function until the promise is resolved
-   const response= await fetch("https://dog.ceo/api/breeds/list/all");
-   const data =await response.json()
-   createBreedList(data.message)
+function fetchData(){
+    document.addEventListener("DOMContentLoaded", init);
+    async function init(){
+        try {
+       //await states js does not run any other function until the promise is resolved
+       const response= await fetch("https://dog.ceo/api/breeds/list/all");
+       const data =await response.json()
+       createBreedList(data.message)
+        }
+        catch (error){
+    console.log ("Problem accessing the breedlist")
     }
-    catch (error){
-console.log ("Problem accessing the breedlist")
+     }
 }
- }
-init()  
+fetchData()
 function createBreedList(breedList){
 document.getElementById("breed").innerHTML=`
 <select onchange="displayByBreed(this.value)">
