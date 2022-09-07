@@ -29,8 +29,21 @@ async function displayByBreed(breed){
  }
 }
 function displaySlides(images){
+let currentPosition=0
+if (images.length > 1){
     document.getElementById("slideshow").innerHTML=`
-<div class="slide" style="background-image: url('${images[0]}')"></div>
-<div class="slide" style="background-image: url('${images[1]}')"></div>
-`
+  <div class="slide" style="background-image: url('${images[0]}')"></div>
+  <div class="slide" style="background-image: url('${images[1]}')"></div>
+  `
+  currentPosition +=2
+  if (images.length == 2)currentPosition=0
+  timer = setInterval(nextSlide, 3000)
+  }
+  else {
+    document.getElementById("slideshow").innerHTML=`
+    <div class="slide" style="background-image: url('${images[0]}')"></div>
+    <div class="slide"></div>
+    `
+  }
+  
 }
